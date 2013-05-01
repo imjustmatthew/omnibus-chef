@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'omnibus', '~> 1.0.0'
-gem 'omnibus-software', :git => 'git://github.com/opscode/omnibus-software.git', :branch => 'master'
+gem 'omnibus', :git => "http://github.com/opscode/omnibus-ruby", :branch => 'lcg/AIX'
+gem 'omnibus-software', :git => 'git://github.com/opscode/omnibus-software.git', :branch => 'lcg/AIX'
