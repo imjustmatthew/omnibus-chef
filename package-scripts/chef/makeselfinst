@@ -8,6 +8,7 @@ INSTALLER_DIR=`dirname $0`
 DEST_DIR=/opt/chef
 CONFIG_DIR=/etc/chef
 USAGE="usage: $0 [-v validation_key] ([-o organization] || [-u url])"
+UNAME=`uname`
 
 error_exit()
 {
@@ -34,6 +35,12 @@ shift `expr ${OPTIND} - 1`
 
 rm -rf $DEST_DIR/* || error_exit "Cannot remove contents of $DEST_DIR"
 mkdir -p $DEST_DIR || error_exit "Cannot create $DEST_DIR"
+if [ "$UNAME" == "AIX" ]; then
+  # FIXME: huge smell, this should get fixed in cacerts package
+  # workaround for symlink differences in AIX cp
+  mkdir -p /opt/chef/embedded/ssl/certs
+  cp embedded/ssl/certs/cacert.pem /opt/chef/embedded/ssl/certs/cacert.pem
+fi
 cp -R $INSTALLER_DIR $DEST_DIR || error_exit "Cannot install to $DEST_DIR"
 rm -f $DEST_DIR/$PROGNAME
 
