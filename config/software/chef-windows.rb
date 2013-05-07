@@ -102,6 +102,8 @@ build do
        "-n #{install_dir}/bin",
        "--no-rdoc --no-ri"].join(" ")
 
+  bundle "install"
+
   # gems with precompiled binaries
   gem ["install",
        "ffi win32-api win32-service",
