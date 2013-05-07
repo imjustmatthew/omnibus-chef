@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/opscode/omnibus-software.git
-  revision: dc156b4a2c406af411a25318bd3c0d64a52bd7f8
-  branch: master
+  revision: 34ba02fc05c0b8d5e8ab6c4088ce50619f5f17ab
+  branch: lcg/unbundle-rspec-tests
   specs:
     omnibus-software (0.0.1)
 
