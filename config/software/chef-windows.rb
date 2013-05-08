@@ -102,7 +102,7 @@ build do
        "-n #{install_dir}/bin",
        "--no-rdoc --no-ri"].join(" ")
 
-  bundle "install"
+  bundle "install", :env = { "PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}" }
 
   # gems with precompiled binaries
   gem ["install",
